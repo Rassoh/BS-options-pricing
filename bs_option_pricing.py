@@ -1,5 +1,16 @@
 import math
 
+## Hardcoding variables to test the function using Nvidias option data today
+S = 177.88
+K = 115
+T = 1/365
+r = 0.05
+sigma = 2.6
+
+
+
+## 
+
 
 def normal_cdf(x: float) -> float:
     return 0.5 * (1 + math.erf(x / math.sqrt(2)))
@@ -31,3 +42,8 @@ def black_scholes_price(
     
     return price 
     
+call_price = black_scholes_price(S, K, T, r, sigma, "call")
+put_price = black_scholes_price(S, K, T, r, sigma, "put")
+
+print("Call Price:", round(call_price, 4))
+print("Put Price:", round(put_price, 4))
