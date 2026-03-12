@@ -126,9 +126,16 @@ options_df["bs_price"] = options_df.apply(
 options_df["mispricing"] = options_df["mid"] - options_df["bs_price"]
 options_df["abs_error"] = options_df["mispricing"].abs()
 
+
+print(options_df.columns.tolist())
+
 view_cols = [
     "contractSymbol", "option_type", "K", "mid", "bs_price",
     "mispricing", "sigma", "volume", "openInterest", "abs_error"
 ]
 
-print(options_df[view_cols].sort_values("abs_error", ascending=False).head(20))
+print(
+    options_df[view_cols]
+    .sort_values("abs_error", ascending=False)[view_cols]
+    .head(20)
+    )
